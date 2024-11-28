@@ -9,9 +9,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.get("/", (req, res) => {
 
-  console.log("dadada")
+  console.log(req)
 
-  console.log(req.body)
+  console.log(`req query - ${req.query}`)
 
   res.send("hiiiii")
 }
