@@ -3,6 +3,8 @@ const app = express();
 const { Pool } = require('pg');
 const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 
+app.use(express.json())
+
 app.get("/", (req, res) => {
 
   console.log("dadada")
