@@ -5,7 +5,7 @@ const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 
 app.get("/", (req, res) => {
 
-  console.log(JSON.stringify(req))
+  //console.log(JSON.stringify(req))
   res.send()
 })
 
