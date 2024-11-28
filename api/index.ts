@@ -4,7 +4,7 @@ const app = express();
 app.get("/", (req, res) => {
 
   console.log(req)
-  res.send("gotcha")
+  res.send(req)
 })
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
