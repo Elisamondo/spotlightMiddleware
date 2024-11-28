@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 
   console.log("dadada")
 
-  console.log(req)
+  console.log(req.body)
 
   res.send("hiiiii")
 }
