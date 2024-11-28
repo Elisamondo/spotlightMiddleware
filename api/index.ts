@@ -1,18 +1,17 @@
 const express = require("express");
 const app = express();
+const { Pool } = require('pg');
+const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 
 app.get("/", (req, res) => {
 
   console.log(JSON.stringify(req))
-  res.send(req)
+  res.send()
 })
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
 
 module.exports = app;
-
-const { Pool } = require('pg');
-const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 
 const pool = new Pool({
   host: PGHOST,
@@ -24,13 +23,3 @@ const pool = new Pool({
     require: true,
   }
 });
-
-async function getPgVersion() {
-  const client = await pool.connect();
-  try {
-    const result = await client.query('SELECT * FROM bags');
-    console.log(result.rows[0]);
-  } finally {
-    client.release();
-  }
-}
