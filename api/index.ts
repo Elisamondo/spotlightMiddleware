@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 
   console.log(req)
 
-  console.log(`req query - ${req.query}`)
+  console.log(`req query - ${JSON.stringify(req.query)}`)
 
   res.send("hiiiii")
 }
