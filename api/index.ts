@@ -6,9 +6,9 @@ const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 app.get("/", (req, res) => {
 
   const got = JSON.stringify(req)
+  console.log(got)
 
-
-  res.send(got)
+  res.send("hiiiii")
 }
 )
 
