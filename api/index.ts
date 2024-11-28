@@ -5,8 +5,13 @@ const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 
 app.get("/", (req, res) => {
 
-  res.send(req)
-})
+  const got = JSON.stringify(req)
+
+
+  res.send(got)
+}
+)
+
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
 
