@@ -33,6 +33,9 @@ const client =  pool.connect().then(
 
 app.get("/", async (req, res) => {
 
+  res.send("aaaa")
+  return
+  
   console.log(req)
 
   if (!req.query.SQL){
