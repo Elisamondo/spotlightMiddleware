@@ -28,7 +28,7 @@ const pool = new Pool({
 const client =  pool.connect()
 
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
 
   console.log(req)
 
@@ -40,10 +40,15 @@ app.get("/", (req, res) => {
   console.log("query exists")
 
   let command = req.query.SQL
-  console.log('getting result')
-  const result = client.query(`${command}`);
-
-  console.log('returning result')
-  res.send(result)
-}
+  
+  try {
+    const result = await pool.query(command)
+    res.send(result.rows);
+  } catch (error) {
+    console.error("Error executing query:", error)
+    res.status(500).send({
+      message: 'Error executing query',
+      error: error.message,
+    });
+}}
 )
