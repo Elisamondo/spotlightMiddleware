@@ -7,7 +7,7 @@ require('dotenv').config();
 
 
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
