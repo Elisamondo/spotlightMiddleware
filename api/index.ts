@@ -58,3 +58,29 @@ app.get("/", async (req, res) => {
   }
 
 )
+
+app.get("/GET", async (req, res) => {
+
+  console.log(res.query)
+  if (req.query.SQL){
+    console.log(req)
+
+    console.log("query exists")
+  
+    let command = req.query.SQL
+    
+    try {
+      const result = await pool.query(command)
+      res.send(result.rows);
+    } catch (error) {
+      console.error("Error executing query:", error)
+      res.status(500).send({
+        message: 'Error executing query',
+        error: error.message,
+      });
+  }}
+
+  res.status(400).send({
+    message: "no SQL Query received",
+  })
+})
