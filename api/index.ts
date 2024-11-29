@@ -41,17 +41,9 @@ app.get("/", (req, res) => {
 
   let command = req.query.SQL
 
+  const result = client.query(`${command}`);
 
 
-  res.send(getQuery(command))
+  res.send(result)
 }
 )
-
-async function getQuery(command){
-  try{
-    const result = await client.query(`${command}`);
-    return result
-  } catch (e){
-    return e
-  }
-}
