@@ -19,7 +19,7 @@ const pool = new Pool({
   database: PGDATABASE,
   user: PGUSER,
   password: PGPASSWORD,
-  port: 5432,
+  port: 3000,
   ssl: {
     require: true,
   }
