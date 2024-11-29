@@ -68,7 +68,7 @@ app.get("/GET", async (req, res) => {
 
 app.post("/POST", async (req, res) => {
 
-    console.log(req)
+    console.log(`POST Received - \n ${req}`)
 
 
   res.send("This doesnt work yet")
