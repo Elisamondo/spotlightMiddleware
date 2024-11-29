@@ -3,6 +3,8 @@ const app = express();
 const { Pool } = require('pg');
 const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 const bodyParser = require('body-parser');
+require('dotenv').config();
+
 
 
 app.use(bodyParser.urlencoded({extended: false}));
