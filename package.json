@@ -17,5 +17,8 @@
     "node": "^20.18.1",
     "pg": "^8.13.1",
     "process": "^0.11.10"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1"
   }
 }
