@@ -25,17 +25,10 @@ const pool = new Pool({
   }
 });
 
-const client =  pool.connect()
-
-(async () => {
-  try {
-    const testClient = await pool.connect();
-    console.log("Database connected successfully!");
-    testClient.release(); // Release the client back to the pool
-  } catch (error) {
-    console.error("Database connection error:", error);
-  }
-})();
+console.log("connecting client")
+const client =  pool.connect().then(
+  console.log("client connected")
+)
 
 
 app.get("/", async (req, res) => {
