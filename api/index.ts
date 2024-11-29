@@ -65,6 +65,7 @@ app.get("/GET", async (req, res) => {
   res.status(400).send({
     message: "no SQL Query received",
   })
+  client.release()
 })
 
 app.post("/POST", async (req, res) => {
@@ -73,4 +74,5 @@ app.post("/POST", async (req, res) => {
 
 
   res.send("This doesnt work yet")
+  client.release()
 })
