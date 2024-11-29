@@ -4,22 +4,22 @@ const { Pool } = require('pg');
 const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 const bodyParser = require('body-parser');
 
-module.exports = app;
 
-//app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
 
 
 
+module.exports = app;
 
 const pool = new Pool({
   host: PGHOST,
   database: PGDATABASE,
   user: PGUSER,
   password: PGPASSWORD,
-  port: 3000,
+  port: 5432,
   ssl: {
     require: true,
   }
