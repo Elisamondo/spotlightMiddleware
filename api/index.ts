@@ -17,7 +17,7 @@ module.exports = app;
 const pool = new Pool({
   host: PGHOST,
   database: PGDATABASE,
-  username: PGUSER,
+  user: PGUSER,
   password: PGPASSWORD,
   port: 5432,
   ssl: {
