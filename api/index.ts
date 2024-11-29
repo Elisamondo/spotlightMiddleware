@@ -33,28 +33,24 @@ const client =  pool.connect().then(
 
 app.get("/", async (req, res) => {
 
-  res.send("aaaa")
-  return
-  
-  console.log(req)
+  if (req.query.SQL){
+    console.log(req)
 
-  if (!req.query.SQL){
-    return res.status(400).send({
-      message: 'Invalid SQL Query'
-    })
+    console.log("query exists")
+  
+    let command = req.query.SQL
+    
+    try {
+      const result = await pool.query(command)
+      res.send(result.rows);
+    } catch (error) {
+      console.error("Error executing query:", error)
+      res.status(500).send({
+        message: 'Error executing query',
+        error: error.message,
+      });
+  }}
+
   }
-  console.log("query exists")
 
-  let command = req.query.SQL
-  
-  try {
-    const result = await pool.query(command)
-    res.send(result.rows);
-  } catch (error) {
-    console.error("Error executing query:", error)
-    res.status(500).send({
-      message: 'Error executing query',
-      error: error.message,
-    });
-}}
 )
