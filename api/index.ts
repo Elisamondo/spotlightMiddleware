@@ -37,13 +37,13 @@ app.get("/", (req, res) => {
       message: 'Invalid SQL Query'
     })
   }
-
+  console.log("query exists")
 
   let command = req.query.SQL
-
+  console.log('getting result')
   const result = client.query(`${command}`);
 
-
+  console.log('returning result')
   res.send(result)
 }
 )
