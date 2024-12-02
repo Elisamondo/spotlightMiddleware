@@ -103,11 +103,14 @@ app.post("/POST", async (req, res) => {
   columns += ")"
   values += ");"
 
+  console.log(`sending request - INSERT INTO ${req.body.category} ${columns} ${values}`)
   try {
+    
     const result = await pool.query(`INSERT INTO ${req.body.category} ${columns} ${values}`)
     res.send(result)
 
   } catch (e){
+    console.log(e)
     res.send(e)
   }
 
