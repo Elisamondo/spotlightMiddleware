@@ -75,27 +75,27 @@ app.post("/POST", async (req, res) => {
 
   console.log(`POST Received - \n ${JSON.stringify(util.inspect(req.body))}`)
 
-  let columns = `(${req.body.category}.notes, ${req.body.category}.origin, ${req.body.category}.dateFound, ${req.body.category}.status, `
+  let columns = `(notes, origin, dateFound, status, `
   let values = `VALUES ( "${req.body.notes}", "${req.body.origin}", "${req.body.dateFound}", "${req.body.status}", `
 
   switch (req.body.category){
     case "clothing":
-      columns += `${req.body.category}.make, ${req.body.category}.type, ${req.body.category}.colours`
+      columns += `make, type, colours`
       values += `"${req.body.make}", "${req.body.type}", ${req.body.colours}`
     break
 
     case "bags":
     case "booksPapers":
-      columns += `${req.body.category}.make, ${req.body.category}.contents`
+      columns += `make, contents`
       values += `"${req.body.make}", "${req.body.contents}"`
     break
     case "jewelleryAccessories":
     case "phones":
-      columns += `${req.body.category}.make, ${req.body.category}.colours`
+      columns += `make, olours`
       values += `"${req.body.make}", "${req.body.colours}"`
       break
     case "keychainsWallets":
-      columns += `${req.body.category}.contents`
+      columns += `contents`
       values += `"${req.body.contents}"`
       break
   }
