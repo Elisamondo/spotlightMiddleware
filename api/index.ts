@@ -76,7 +76,7 @@ app.post("/POST", async (req, res) => {
   console.log(`POST Received - \n ${JSON.stringify(util.inspect(req.body))}`)
 
   let columns = "(notes, origin, dateFound, status, "
-  let values = `VALUES ( \n"${req.body.notes}\n", \n"${req.body.origin}\n", ${req.body.dateFound}, \n"${req.body.status}\n" `
+  let values = `VALUES ( "${req.body.notes}", "${req.body.origin}", "${req.body.dateFound}", "${req.body.status}" `
 
   switch (req.body.category){
     case "clothing":
