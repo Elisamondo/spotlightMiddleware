@@ -4,6 +4,8 @@ const { Pool } = require('pg');
 const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 const bodyParser = require('body-parser');
 require('dotenv').config();
+const util = require('util')
+
 
 
 
@@ -71,9 +73,9 @@ app.get("/GET", async (req, res) => {
 
 app.post("/POST", async (req, res) => {
 
-    //console.log(`POST Received - \n ${JSON.stringify(req.)}`)
+     console.log(`POST Received - \n ${JSON.stringify(util.inspect(req))}`)
 
 
-  res.send(req)
+  res.send("")
   client.release()
 })
