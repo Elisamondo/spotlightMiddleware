@@ -91,7 +91,7 @@ app.post("/POST", async (req, res) => {
     break
     case "jewelleryAccessories":
     case "phones":
-      columns += `make, olours`
+      columns += `make, colours`
       values += `"${req.body.make}", "${req.body.colours}"`
       break
     case "keychainsWallets":
