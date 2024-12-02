@@ -73,8 +73,37 @@ app.get("/GET", async (req, res) => {
 
 app.post("/POST", async (req, res) => {
 
-     console.log(`POST Received - \n ${JSON.stringify(util.inspect(req.body))}`)
+  console.log(`POST Received - \n ${JSON.stringify(util.inspect(req.body))}`)
 
+  let columns = "(notes, origin, dateFound, status, "
+  let values = `VALUES ( ${req.body.notes}, ${req.body.origin}, ${req.body.dateFound}, ${req.body.status} `
+
+  switch (req.body.category){
+    case "clothing":
+      columns += "make, type, colours"
+      values += `${req.body.make}, ${req.body.type}, ${req.body.colours}`
+    break
+
+    case "bags":
+    case "booksPapers":
+      columns += "make, contents"
+      values += `${req.body.make}, ${req.body.contents}`
+    break
+    case "jewelleryAccessories":
+    case "phones":
+      columns += "make, colours"
+      values += `${req.body.make}, ${req.body.colours}`
+      break
+    case "keys":
+      columns += "contents"
+      values += `${req.body.contents}`
+      break
+  }
+
+  columns += ")"
+  values += ");"
+
+  client.request(`INSERT INTO ${req.body.category} ${columns} ${values}`)
 
   res.send("")
 })
