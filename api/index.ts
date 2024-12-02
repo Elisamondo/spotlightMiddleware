@@ -81,13 +81,13 @@ app.post("/POST", async (req, res) => {
   switch (req.body.category){
     case "clothing":
       columns += "make, type, colours"
-      values += `${req.body.make}", "${req.body.type}", ${req.body.colours}`
+      values += `"${req.body.make}", "${req.body.type}", ${req.body.colours}`
     break
 
     case "bags":
     case "booksPapers":
       columns += "make, contents"
-      values += `"${req.body.make}", "${req.body.contents}"`
+      values += `${req.body.make}, ${req.body.contents}`
     break
     case "jewelleryAccessories":
     case "phones":
