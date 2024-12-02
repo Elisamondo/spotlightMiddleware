@@ -71,7 +71,7 @@ app.get("/GET", async (req, res) => {
 
 app.post("/POST", async (req, res) => {
 
-    console.log(`POST Received - \n ${JSON.stringify(req.body)}`)
+    console.log(`POST Received - \n ${JSON.stringify(req.data)}`)
 
 
   res.send("This doesnt work yet")
