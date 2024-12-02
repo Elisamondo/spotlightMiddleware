@@ -60,6 +60,7 @@ app.get("/GET", async (req, res) => {
         message: 'Error executing query',
         error: error.message,
       });
+    client.release()
   }}
 
   res.status(400).send({
