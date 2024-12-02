@@ -70,7 +70,7 @@ app.get("/GET", async (req, res) => {
 
 app.post("/POST", async (req, res) => {
 
-    console.log(`POST Received - \n ${req}`)
+    console.log(`POST Received - \n ${JSON.stringify(req)}`)
 
 
   res.send("This doesnt work yet")
